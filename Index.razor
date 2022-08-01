@@ -1,0 +1,22 @@
+﻿<StudentCMP EventCallBackProperty="ClickHandler"></StudentCMP>
+EventCallBackProperty="ClickHandler"
+@if(fistname==null)
+{
+    <p>first name is null</p>
+}
+else
+{
+    <p>@fistname</p>
+}
+
+
+@code {
+
+    string fistname = null;
+
+    void ClickHandler(StudentModel newMessage)
+    {
+        fistname = newMessage.FirstName;
+    }
+
+}
