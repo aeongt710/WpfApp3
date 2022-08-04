@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.AspNetCore.Components.WebView;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace WpfApp3
@@ -28,5 +29,14 @@ namespace WpfApp3
             serviceCollection.AddWpfBlazorWebView();
             Resources.Add("services", serviceCollection.BuildServiceProvider());
         }
+        private void Handle_UrlLoading(object sender,
+UrlLoadingEventArgs urlLoadingEventArgs)
+        {
+            if (urlLoadingEventArgs.Url.Host == "0.0.0.0")
+            {
+                urlLoadingEventArgs.UrlLoadingStrategy = UrlLoadingStrategy.OpenInWebView;
+            }
+        }
     }
+
 }
