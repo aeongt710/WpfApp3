@@ -8,15 +8,27 @@
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
 
+@*
+<Router AppAssembly="@typeof(Index).Assembly">
 
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+*@
 @*<CascadingAuthenticationState>*@
-    <Router AppAssembly="@typeof(Index).Assembly">
+@* <Router AppAssembly="@typeof(Index).Assembly">
         <Found >
 
         </Found>
         <NotFound>
 
-        </NotFound>
+        </NotFound>*@
 @*        <Found Context="routeData">
             @*<AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
@@ -38,12 +50,12 @@
                 <p role="alert">Sorry, there's nothing at this address.</p>
             </LayoutView>
         </NotFound>*@
-    </Router>
+@*</Router>*@
 @*</CascadingAuthenticationState>*@
 
 <StudentCMP EventCallBackProperty="ClickHandler"></StudentCMP>
 EventCallBackProperty="ClickHandler"
-@if(fistname==null)
+@if (fistname == null)
 {
     <p>first name is null</p>
 }
@@ -64,7 +76,7 @@ else
 
     void f1(string x)
     {
-        
+
     }
     void ClickHandler(StudentModel newMessage)
     {
